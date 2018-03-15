@@ -44,7 +44,7 @@ end
 
 begin
     rubeep=Rubeep.new
-    rubeep.load('furura.txt')
+    rubeep.load('rubeep.txt')
     rubeep.play
 end
 
