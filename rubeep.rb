@@ -6,6 +6,7 @@ class Rubeep
         @basic_time=1000
     end
     def load(fn)
+        p fn
         @arr=[]
         File.open(fn,mode='rt:utf-8'){|f|
             @arr=f.readlines
@@ -18,24 +19,24 @@ class Rubeep
     end
     def beep(scale,time)
         case scale
-        when 'lf' then hz=294
-        when 'lg' then hz=330
-        when 'la' then hz=370
-        when 'lb' then hz=415
-        when 'c' then hz=440    #ド
-        when 'd' then hz=494    #レ
-        when 'e' then hz=554    #ミ
-        when 'f' then hz=587    #ファ
-        when 'g' then hz=659    #ソ
-        when 'a' then hz=740    #ラ
-        when 'b' then hz=830    #シ
-        when 'hc' then hz=880   #ド
-        when 'hd' then hz=988
-        when 'he' then hz=1109
-        when 'hf' then hz=1175
-        when 'hg' then hz=1319
-        when 'ha' then hz=1480
-        when 'hb' then hz=1661
+        when 'lf' then hz=175   #ファ
+        when 'lg' then hz=196   #ソ
+        when 'la' then hz=220   #ラ
+        when 'lb' then hz=247   #シ
+        when 'c' then hz=262    #ド
+        when 'd' then hz=294    #レ
+        when 'e' then hz=329    #ミ
+        when 'f' then hz=349    #ファ
+        when 'g' then hz=392    #ソ
+        when 'a' then hz=440    #ラ
+        when 'b' then hz=494    #シ
+        when 'hc' then hz=523   #ド
+        when 'hd' then hz=587   #レ
+        when 'he' then hz=659   #ミ
+        when 'hf' then hz=698   #ファ
+        when 'hg' then hz=784   #ソ
+        when 'ha' then hz=880   #ラ
+        when 'hb' then hz=988   #シ
         else hz=0
         end
         @bp.call(hz,time)
