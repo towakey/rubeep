@@ -1,6 +1,6 @@
 require 'Win32API'
 
-class Beep
+class Rubeep
     def initialize
         @bp=Win32API.new('kernel32',"Beep",%w(i i),'i')
     end
@@ -48,12 +48,14 @@ class Beep
     end
 end
 
-beep=Beep.new
-beep.beep('d',1000)     #レ
-beep.beep('g',1000)     #ソ
-beep.beep('hc',2000)    #hドー
-beep.beep('a',500)      #ラ
-beep.beep('hd',1000)    #hレ
-beep.beep('e',1000)     #ミ
-beep.beep('la',2000)     #lラ
-
+=begin
+rubeep=Rubeep.new
+rubeep.beep('c',1000)     #ド
+rubeep.beep('d',1000)     #レ
+rubeep.beep('e',1000)     #ミ
+rubeep.beep('f',1000)     #ファ
+rubeep.beep('g',1000)     #ソ
+rubeep.beep('a',1000)     #ラ
+rubeep.beep('b',1000)     #シ
+rubeep.beep('hc',1000)    #ド
+=end
