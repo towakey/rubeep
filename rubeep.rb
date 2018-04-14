@@ -7,20 +7,20 @@ class Rubeep
     end
     def load(fn)
         p fn
-        @arr=[]
-        File.open(fn,mode='rt:utf-8'){|f|
-            @arr=f.readlines
-        }
-        @arr2=[]
-        @arr.each{|tmp|
-            @arr2<< tmp.chomp!.split(":")
+        @line=[]
+        File.open(fn,mode='rt:utf-8'){|lines|
+            @line=lines.readlines
         }
     end
     def play
-        @arr2.each{|melody,scale|
-            p melody
-            p scale
-            self.beep(melody,scale,@basic_time)
+        @line.each{|row|
+            block=[]
+            block = row.chomp!.split(",")
+            block.each{|unit|
+                melody = unit.to_s.split(":")[0]
+                scale = unit.to_s.split(":")[1]
+                self.beep(melody,scale,@basic_time)
+            }
         }
     end
     def beep(melody,scale,time)
