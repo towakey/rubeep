@@ -14,13 +14,15 @@ class Rubeep
     end
     def play
         @line.each{|row|
-            block=[]
-            block = row.chomp!.split(",")
-            block.each{|unit|
-                melody = unit.to_s.split(":")[0]
-                scale = unit.to_s.split(":")[1]
-                self.beep(melody,scale,@basic_time)
-            }
+            if !row.start_with?("//") then
+                block=[]
+                block = row.chomp!.split(",")
+                block.each{|unit|
+                    melody = unit.to_s.split(":")[0]
+                    scale = unit.to_s.split(":")[1]
+                    self.beep(melody,scale,@basic_time)
+                }
+            end
         }
     end
     def beep(melody,scale,time)
@@ -45,7 +47,7 @@ end
 
 begin
     rubeep=Rubeep.new
-    rubeep.load('rubeep.txt')
+    rubeep.load('furura.txt')
     rubeep.play
 end
 
